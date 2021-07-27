@@ -1,0 +1,58 @@
+package testrunner;
+
+import cucumber.api.junit.Cucumber;
+import cucumber.api.testng.CucumberFeatureWrapper;
+import cucumber.api.testng.TestNGCucumberRunner;
+import io.appium.java_client.service.local.AppiumDriverLocalService;
+
+import org.junit.runner.RunWith;
+import org.testng.annotations.*;
+import java.io.*;
+
+@CucumberOptions(
+		features = "src/test/resources/FeatureFiles",
+        glue = {"testcases"},
+        //tags = {"~@Ignore"},
+        		format = {
+                        "pretty",
+                        "html:target/cucumber-reports/cucumber-pretty",
+                        "json:target/cucumber-reports/CucumberTestReport.json",
+                        "rerun:src/test/resources/Failedfeature/rerun.txt"},
+        plugin = {"reporting.Reports"})
+
+public class Runner extends BaseTest{
+	private TestNGCucumberRunner testNGCucumberRunner;
+	CucumberFeatureWrapper cucumberFeatures;
+	AppiumDriverLocalService appiumDriverLocalService;
+	
+	@BeforeSuite
+    public void beforeSuite() throws FileNotFoundException, IOException {
+		appiumDriverLocalService = AppiumDriverLocalService.buildDefaultService();
+        appiumDriverLocalService.start();
+	 }
+	
+	@BeforeClass(alwaysRun = true)
+    public void setUpClass() throws Exception {
+        testNGCucumberRunner = new TestNGCucumberRunner(this.getClass());
+    }
+ 	
+    @Test(dataProvider = "features")
+    public void feature(CucumberFeatureWrapper cucumberFeature) {
+    	testNGCucumberRunner.runCucumber(cucumberFeature.getCucumberFeature());
+    }
+ 
+    @DataProvider(name="features")
+    public Object[][] features() {
+    	return testNGCucumberRunner.provideFeatures();
+    }
+ 
+    @AfterClass(alwaysRun = true)
+    public void tearDownClass() throws Exception {
+    	testNGCucumberRunner.finish();
+    }
+    
+    @AfterSuite
+    public void afterSuite() {
+        appiumDriverLocalService.stop();
+    }
+}

@@ -1,0 +1,31 @@
+package testcases;
+
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+
+import cucumber.api.Scenario;
+import cucumber.api.java.After;
+import cucumber.api.java.Before;
+import gherkin.formatter.model.ScenarioOutline;
+import gherkin.formatter.model.Step;
+import io.cucumber.plugin.event.TestCaseFinished;
+import testrunner.BaseTest;
+
+public class Reports {
+	TestCaseFinished event;
+	
+	
+	
+	@After
+	public void capturescreenshot(Scenario s){
+		final byte[] screenshot = ((TakesScreenshot) BaseTest.driver).getScreenshotAs(OutputType.BYTES);     //Take screenshot
+        s.embed(screenshot, "image/png");
+        TestCase testCase = event.getTestCase();
+        Result result = event.getResult();
+        Status status = result.getStatus();
+        Throwable error = result.getError();
+        String scenarioName = testCase.getName();
+        TestStep testStep = testCase.getTestSteps().get(0);
+        System.out.println();
+    }
+}

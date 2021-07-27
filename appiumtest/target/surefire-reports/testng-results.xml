@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Appium Test Suite" duration-ms="77221" started-at="2021-07-27T13:45:28Z" finished-at="2021-07-27T13:46:46Z">
+    <groups>
+    </groups>
+    <test name="Launching Browser" duration-ms="77221" started-at="2021-07-27T13:45:28Z" finished-at="2021-07-27T13:46:46Z">
+      <class name="testrunner.Runner">
+        <test-method status="PASS" signature="beforeSuite()[pri:0, instance:testrunner.Runner@5622fdf]" name="beforeSuite" is-config="true" duration-ms="4965" started-at="2021-07-27T13:45:23Z" finished-at="2021-07-27T13:45:28Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeSuite -->
+        <test-method status="PASS" signature="setUpClass()[pri:0, instance:testrunner.Runner@5622fdf]" name="setUpClass" is-config="true" duration-ms="1492" started-at="2021-07-27T13:45:28Z" finished-at="2021-07-27T13:45:30Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpClass -->
+        <test-method status="PASS" signature="setAppium()[pri:0, instance:testrunner.Runner@5622fdf]" name="setAppium" is-config="true" duration-ms="18020" started-at="2021-07-27T13:45:30Z" finished-at="2021-07-27T13:45:48Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setAppium -->
+        <test-method status="PASS" signature="feature(io.cucumber.testng.PickleWrapper, io.cucumber.testng.FeatureWrapper)[pri:0, instance:testrunner.Runner@5622fdf]" name="feature" duration-ms="55913" started-at="2021-07-27T13:45:48Z" data-provider="features" finished-at="2021-07-27T13:46:44Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Register a employee in EA application"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Optional[EA application]"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- feature -->
+        <test-method status="PASS" signature="teardown()[pri:0, instance:testrunner.Runner@5622fdf]" name="teardown" is-config="true" duration-ms="673" started-at="2021-07-27T13:46:44Z" finished-at="2021-07-27T13:46:44Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- teardown -->
+        <test-method status="PASS" signature="tearDownClass()[pri:0, instance:testrunner.Runner@5622fdf]" name="tearDownClass" is-config="true" duration-ms="1070" started-at="2021-07-27T13:46:44Z" finished-at="2021-07-27T13:46:46Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownClass -->
+        <test-method status="PASS" signature="afterSuite()[pri:0, instance:testrunner.Runner@5622fdf]" name="afterSuite" is-config="true" duration-ms="53" started-at="2021-07-27T13:46:46Z" finished-at="2021-07-27T13:46:46Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterSuite -->
+      </class> <!-- testrunner.Runner -->
+    </test> <!-- Launching Browser -->
+  </suite> <!-- Appium Test Suite -->
+</testng-results>

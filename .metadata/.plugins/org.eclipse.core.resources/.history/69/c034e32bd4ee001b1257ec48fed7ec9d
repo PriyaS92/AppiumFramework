@@ -1,0 +1,13 @@
+package hooks;
+
+import io.cucumber.java.AfterStep;
+
+public class CommonHooks {
+	
+	@AfterStep
+    public void capturescreenshot(){
+    	
+    }
+    
+    
+}

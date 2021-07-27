@@ -1,0 +1,35 @@
+package reporting;
+
+import io.cucumber.plugin.ConcurrentEventListener;
+import io.cucumber.plugin.event.EventPublisher;
+import io.cucumber.plugin.event.Result;
+import io.cucumber.plugin.event.Status;
+import io.cucumber.plugin.event.TestCase;
+import io.cucumber.plugin.event.TestCaseFinished;
+import io.cucumber.plugin.event.TestStep;
+
+public class Reports implements ConcurrentEventListener{
+	
+	public Reports(){
+		
+	}
+	
+	
+	
+	@Override
+    public void setEventPublisher(EventPublisher publisher) {
+        publisher.registerHandlerFor(TestCaseFinished.class, this::EHTestCaseEnded);
+    }	
+    
+    public void EHTestCaseEnded(TestCaseFinished event)  {
+		//final byte[] screenshot = ((TakesScreenshot) BaseTest.driver).getScreenshotAs(OutputType.BYTES);     //Take screenshot
+        //s.embed(screenshot, "image/png");
+		TestCase testCase = event.getTestCase();
+        Result result = event.getResult();
+        Status status = result.getStatus();
+        Throwable error = result.getError();
+        String scenarioName = testCase.getName();
+        TestStep testStep = testCase.getTestSteps().get(1);
+        System.out.println(testStep);
+    }
+}

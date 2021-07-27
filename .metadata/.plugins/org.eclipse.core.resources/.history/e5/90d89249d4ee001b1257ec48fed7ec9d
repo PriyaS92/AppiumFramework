@@ -1,0 +1,13 @@
+package hooks;
+
+import com.aventstack.extentreports.gherkin.model.Scenario;
+
+import io.cucumber.java.AfterStep;
+
+public class CommonHooks {
+	
+	@AfterStep
+    public void capturescreenshot(Scenario scenario){
+    	
+    }
+}

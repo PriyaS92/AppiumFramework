@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="1" configfailurepolicy="continue" guice-stage="DEVELOPMENT" verbose="0" name="Failed suite [Appium Test Suite]" parallel="tests">
+  <test thread-count="1" verbose="0" name="Launching Browser(failed)" parallel="tests">
+    <classes>
+      <class name="testrunner.Runner">
+        <methods>
+          <include name="feature" invocation-numbers="0"/>
+          <include name="teardown"/>
+          <include name="setAppium"/>
+          <include name="setUpClass"/>
+          <include name="beforeSuite"/>
+          <include name="afterSuite"/>
+          <include name="tearDownClass"/>
+        </methods>
+      </class> <!-- testrunner.Runner -->
+    </classes>
+  </test> <!-- Launching Browser(failed) -->
+</suite> <!-- Failed suite [Appium Test Suite] -->
